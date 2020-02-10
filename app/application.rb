@@ -1,13 +1,13 @@
 class Application
  
-@@items = [Items.new]
+@@items = [Item.new]
   
  
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
  
-    if req.path.match(/items/<Items.name>)
+    if req.path.match(/items/<Item.name>)
  
       item_price = req.path.split("/items/").last 
       item = @@items.find{|s| s.title == item_price}
