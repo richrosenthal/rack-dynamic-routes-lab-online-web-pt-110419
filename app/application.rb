@@ -1,5 +1,6 @@
 class Application
  
+@@items = [Items.new]
   
  
   def call(env)
