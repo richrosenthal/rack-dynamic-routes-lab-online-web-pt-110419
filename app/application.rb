@@ -7,11 +7,11 @@ class Application
     req = Rack::Request.new(env)
  
     if req.path.match(/items/<ITEM NAME>)
-      @items.each do |item|
-        resp.write "#{item.price}\n"
-      end
-    else
-      resp.write "Path Not Found"
+ 
+      item_price = req.path.split("/items/").last 
+      item = @@items.find{|s| s.title == item_price}
+ 
+      resp.write item.price
     end
  
     resp.finish
